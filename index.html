@@ -1,400 +1,75 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gabriel Vieira – Passeio Pet | Suzano e Região</title>
-  <style>
-    :root {
-      --bg: #f6f8f7;
-      --surface: #ffffff;
-      --primary: #14532d;
-      --primary-hover: #166534;
-      --accent: #ea580c;
-      --accent-soft: #fff7ed;
-      --text: #1e293b;
-      --muted: #475569;
-      --border: #e2e8f0;
-      --radius: 14px;
-    }
+  <title>Gabriel Vieira – Passeio Pet | Parque Santa Rosa, Suzano - SP</title>
+  <meta name="description" content="Passeios seguros, divertidos e cheios de cuidado para o seu cão no Parque Santa Rosa e região em Suzano - SP. Agende pelo WhatsApp (11) 95995-4241." />
+  
+  <!-- Fonte Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-    }
-
-    .container {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    header {
-      background: linear-gradient(135deg, #14532d 0%, #1e3a2f 100%);
-      color: #fff;
-      padding: 48px 0 44px;
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.16);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      margin-bottom: 14px;
-    }
-
-    h1 {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-
-    .hero-sub {
-      color: #dcfce7;
-      max-width: 660px;
-      font-size: 1.05rem;
-      margin-bottom: 24px;
-    }
-
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      font-size: 0.98rem;
-      transition: transform 0.12s ease, background-color 0.15s ease;
-    }
-
-    .btn:active {
-      transform: scale(0.99);
-    }
-
-    .btn-whatsapp {
-      background: #22c55e;
-      color: #052e16;
-    }
-
-    .btn-whatsapp:hover {
-      background: #16a34a;
-      color: #fff;
-    }
-
-    .btn-outline {
-      background: rgba(255, 255, 255, 0.12);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-    }
-
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.22);
-    }
-
-    section {
-      padding: 40px 0;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 8px;
-      color: var(--primary);
-    }
-
-    .section-desc {
-      color: var(--muted);
-      margin-bottom: 22px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 8px;
-    }
-
-    .price {
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin: 12px 0 6px;
-    }
-
-    .price-note {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    .card ul {
-      list-style: none;
-      margin-bottom: 18px;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .card ul li {
-      margin-bottom: 6px;
-    }
-
-    .btn-select {
-      width: 100%;
-      background: var(--primary);
-      color: #fff;
-    }
-
-    .btn-select:hover {
-      background: var(--primary-hover);
-    }
-
-    .partnership-box {
-      background: var(--accent-soft);
-      border: 1px solid #fed7aa;
-      border-radius: var(--radius);
-      padding: 26px;
-    }
-
-    .partnership-badge {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .custom-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      margin-top: 20px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 14px;
-      margin: 14px 0 18px;
-    }
-
-    label {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    select, input {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 8px;
-      border: 1px solid #cbd5e1;
-      font-size: 0.95rem;
-      background: #fff;
-    }
-
-    footer {
-      text-align: center;
-      padding: 28px 20px 40px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--border);
-      margin-top: 24px;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <div class="container">
-      <div class="badge">🐾 Suzano e Região • Atenção e Segurança</div>
-      <h1>Gabriel Vieira – Passeio Pet</h1>
-      <p class="hero-sub">
-        Passeios seguros, no ritmo do seu cão, com opção de combinar valores na hora ou integrar com <strong>parceria de banho e tosa</strong>.
-      </p>
-      <div class="btn-group">
-        <a class="btn btn-whatsapp" href="https://wa.me/5511959954241?text=Ol%C3%A1%20Gabriel%2C%20vim%20pelo%20site%20e%20gostaria%20de%20combinar%20um%20passeio%20pet." target="_blank" rel="noopener">
-          💬 Conversar no WhatsApp
-        </a>
-        <a class="btn btn-outline" href="#valores">Ver opções e valores</a>
-        <a class="btn btn-outline" href="#parceria">Parceria Banho e Tosa</a>
-      </div>
-    </div>
-  </header>
-
-  <main class="container">
-    <section id="valores">
-      <h2>Escolha a opção ou combine o valor</h2>
-      <p class="section-desc">
-        Valores de referência (você pode editar facilmente no código ou escolher/personalizar para mandar direto no WhatsApp).
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <div>
-            <h3>Passeio Avulso</h3>
-            <div class="price">R$ 35 <span style="font-size:0.9rem;font-weight:500;">(ex.)</span></div>
-            <div class="price-note">Ideal para testar ou dias corridos</div>
-            <ul>
-              <li>• Duração aproximada de 40 a 60 min</li>
-              <li>• Atenção ao comportamento do cão</li>
-              <li>• Atualização rápida após o passeio</li>
-            </ul>
-          </div>
-          <button class="btn btn-select" onclick="enviarWhatsApp('Passeio Avulso (R$ 35 - ref.)')">
-            Escolher esta opção
-          </button>
-        </div>
-
-        <div class="card">
-          <div>
-            <h3>Pacote Semanal</h3>
-            <div class="price">R$ 120 <span style="font-size:0.9rem;font-weight:500;">(ex.)</span></div>
-            <div class="price-note">Rotina constante de gasto de energia</div>
-            <ul>
-              <li>• Frequência combinada na semana</li>
-              <li>• Melhor custo por passeio</li>
-              <li>• Horários alinhados à sua agenda</li>
-            </ul>
-          </div>
-          <button class="btn btn-select" onclick="enviarWhatsApp('Pacote Semanal (R$ 120 - ref.)')">
-            Escolher esta opção
-          </button>
-        </div>
-
-        <div class="card">
-          <div>
-            <h3>Valor a Combinar</h3>
-            <div class="price">Sob medida</div>
-            <div class="price-note">Para porte, quantidade de cães ou rota</div>
-            <ul>
-              <li>• Avaliação do perfil e energia do pet</li>
-              <li>• Ajuste conforme distância e duração</li>
-              <li>• Negociação direta sem compromisso</li>
-            </ul>
-          </div>
-          <button class="btn btn-select" onclick="enviarWhatsApp('Quero combinar um valor personalizado')">
-            Combinar no WhatsApp
-          </button>
-        </div>
-      </div>
-
-      <div class="custom-box">
-        <h3>Monte sua solicitação rápida</h3>
-        <p class="section-desc" style="margin-bottom: 10px;">
-          Escolha o serviço, informe um valor sugerido (opcional) e clique para abrir o WhatsApp com a mensagem pronta.
-        </p>
-        <div class="form-row">
-          <div>
-            <label for="servico">Tipo de serviço</label>
-            <select id="servico">
-              <option value="Passeio Avulso">Passeio Avulso</option>
-              <option value="Pacote Semanal">Pacote Semanal</option>
-              <option value="Passeio + Parceria Banho e Tosa">Passeio + Parceria Banho e Tosa</option>
-              <option value="Apenas consultar Parceria Banho e Tosa">Apenas consultar Parceria Banho e Tosa</option>
-            </select>
-          </div>
-          <div>
-            <label for="valorSugerido">Valor escolhido / combinado (opcional)</label>
-            <input id="valorSugerido" type="text" placeholder="Ex.: R$ 35 ou a combinar" />
-          </div>
-          <div>
-            <label for="nomePet">Nome e porte do pet (opcional)</label>
-            <input id="nomePet" type="text" placeholder="Ex.: Thor, porte médio" />
-          </div>
-        </div>
-        <button class="btn btn-whatsapp" onclick="enviarFormulario()">
-          📲 Enviar solicitação no WhatsApp
-        </button>
-      </div>
-    </section>
-
-    <section id="parceria">
-      <div class="partnership-box">
-        <span class="partnership-badge">Parceria Local</span>
-        <h2>Passeio + Parceria de Banho e Tosa</h2>
-        <p style="margin: 10px 0 14px; color: var(--text);">
-          Praticidade para o tutor: organize o passeio do seu cão em conjunto com o serviço de <strong>banho e tosa</strong> por meio da nossa parceria local, combinando horários, logística e condições diretamente pelo WhatsApp.
-        </p>
-        <ul style="list-style: none; margin-bottom: 18px; color: var(--muted);">
-          <li>✓ Facilidade para encaixar passeio e cuidados de higiene/estética na mesma rotina</li>
-          <li>✓ Valores e disponibilidade confirmados diretamente com você antes do agendamento</li>
-          <li>✓ Atendimento focado no conforto e tranquilidade do pet</li>
-        </ul>
-        <button class="btn btn-whatsapp" onclick="enviarWhatsApp('Parceria Banho e Tosa + Passeio')">
-          🛁 Consultar Parceria de Banho e Tosa
-        </button>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p><strong>Gabriel Vieira – Passeio Pet</strong> • WhatsApp: (11) 95995-4241</p>
-    <p style="margin-top: 6px;">Site publicado em: <code>https://gabsdados.github.io/passeio-pet-suzano/</code></p>
-  </footer>
-
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    const WHATSAPP_NUMBER = "5511959954241";
-
-    function abrirWhatsApp(mensagem) {
-      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
-      window.open(url, "_blank", "noopener");
-    }
-
-    function enviarWhatsApp(opcao) {
-      abrirWhatsApp(`Olá Gabriel! Vim pelo site e tenho interesse em: ${opcao}.`);
-    }
-
-    function enviarFormulario() {
-      const servico = document.getElementById("servico").value;
-      const valor = document.getElementById("valorSugerido").value.trim() || "a combinar";
-      const pet = document.getElementById("nomePet").value.trim();
-
-      let msg = `Olá Gabriel! Vim pelo site.\n• Serviço: ${servico}\n• Valor: ${valor}`;
-      if (pet) {
-        msg += `\n• Pet: ${pet}`;
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cream: '#FDFBF7',
+              sand: '#F5EFE6',
+              teal: '#0D9488',
+              tealDark: '#0F766E',
+              tealLight: '#CCFBF1',
+              navy: '#0F172A',
+              slate: '#334155',
+              amber: '#F59E0B',
+            }
+          }
+        }
       }
-      abrirWhatsApp(msg);
-    }
+    };
   </script>
-</body>
-</html>
+</head>
+<body class="bg-brand-cream text-brand-navy font-sans antialiased selection:bg-brand-teal selection:text-white">
+
+  <!-- Cabeçalho / Navegação -->
+  <header class="sticky top-0 z-40 bg-brand-cream/90 backdrop-blur-md border-b border-stone-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      <!-- Logo / Marca -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-2xl bg-brand-teal text-white flex items-center justify-center shadow-sm group-hover:bg-brand-tealDark transition-colors">
+          <!-- SVG Pata -->
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 10.5c-2.2 0-4 1.8-4 4 0 1.4.8 2.7 2 3.4.6.4 1.3.6 2 .6s1.4-.2 2-.6c1.2-.7 2-2 2-3.4 0-2.2-1.8-4-4-4zm-6.5-1c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm13 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9 6.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="block font-bold text-base sm:text-lg leading-tight text-brand-navy">Gabriel Vieira</span>
+          <span class="block text-xs font-medium text-brand-teal">Passeio Pet • Suzano</span>
+        </div>
+      </a>
+
+      <!-- Links de Navegação Desktop -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-slate">
+        <a href="#como-funciona" class="hover:text-brand-teal transition-colors">Como Funciona</a>
+        <a href="#area-atendimento" class="hover:text-brand-teal transition-colors">Área de Atendimento</a>
+        <a href="#parceria-banho-tosa" class="hover:text-brand-teal transition-colors">Banho e Tosa</a>
+        <a href="#agendar" class="hover:text-brand-teal transition-colors">Simulador de Agendamento</a>
+      </nav>
+
+      <!-- Botão Rápido Header -->
+      <a
+        href="https://wa.me/5511959954241?text=Ol%C3%A1%20Gabriel!%20Vi%20sua%20p%C3%A1gina%20de%20passeio%20pet%20no%20Parque%20Santa%20Rosa%20e%20gostaria%20de%20agendar%20um%20passeio."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-teal hover:bg-brand-tealDark text-white text-xs sm:text-sm font-semibold shadow-sm transition-all active:scale-95"
+      >
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5
