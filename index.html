@@ -142,7 +142,7 @@
 </head>
 <body>
 
-  <!-- Cabeçalho / Navegação (Ordem Preservada) -->
+  <!-- Cabeçalho / Navegação (Original Preservado) -->
   <header class="site-header">
     <div class="site-header-inner">
       <a href="#" class="brand-link">
@@ -888,26 +888,34 @@
           var dropOffTime = dropOffTimeInput ? dropOffTimeInput.value.trim() : '';
 
           var lines = [
-            'Olá Gabriel! Vi sua página de Passeio Pet e gostaria de agendar:',
+            '🐾 Olá Gabriel! Vi sua página de Passeio Pet e gostaria de agendar:',
             '',
-            'Tutor / Responsável: ' + tutor,
-            'Cão: ' + pet + ' (' + size + ')',
-            'Modalidade / Valor: ' + walkType,
-            'Dia e Horário preferido: ' + preferredTime,
-            'Endereço: ' + addressText,
-            'Expediente: ' + WORK_HOURS_TEXT
+            '👤 Tutor / Responsável: ' + tutor,
+            '🐶 Cão: ' + pet + ' (' + size + ')',
+            '💰 Modalidade / Valor: ' + walkType,
+            '📅 Dia e Horário preferido: ' + preferredTime,
+            '⏰ Expediente: ' + WORK_HOURS_TEXT,
+            '📍 Endereço: ' + addressText
           ];
 
           if (isGroomingSelected()) {
+            lines.push('🚗 Leva e traz / Banho e Tosa: ' + walkType);
             if (groomingAddr) {
-              lines.push('Endereço banho e tosa: ' + groomingAddr);
+              lines.push('🚗 Endereço banho e tosa: ' + groomingAddr);
             }
             if (dropOffTime) {
-              lines.push('Horário para levar: ' + dropOffTime);
+              lines.push('⏰ Horário para levar: ' + dropOffTime);
+            }
+          } else if (groomingAddr || dropOffTime) {
+            if (groomingAddr) {
+              lines.push('🚗 Leva e traz: ' + groomingAddr);
+            }
+            if (dropOffTime) {
+              lines.push('⏰ Horário: ' + dropOffTime);
             }
           }
 
-          lines.push('Região: Parque Santa Rosa / Suzano - SP');
+          lines.push('📍 Região: Parque Santa Rosa / Suzano - SP');
           return lines.join('\n');
         }
 
