@@ -142,7 +142,7 @@
 </head>
 <body>
 
-  <!-- Cabeçalho / Navegação (Original Preservado) -->
+  <!-- Cabeçalho / Navegação -->
   <header class="site-header">
     <div class="site-header-inner">
       <a href="#" class="brand-link">
@@ -574,567 +574,93 @@
             <div id="day-slots-panel" class="is-hidden" style="margin-top:16px;padding-top:16px;border-top:1px solid #e7e5e4;">
               <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;">
                 <span id="active-day-title" style="font-size:14px;font-weight:800;color:#0F172A;"></span>
-                <button type="button" id="close-day-panel" style="background:none;border:none;font-size:12px;font-weight:600;color:#334155;text-decoration:underline;cursor:pointer;">
-                  Fechar dia
-                </button>
+                <span id="active-day-hours" style="font-size:12px;font-weight:600;color:#0F766E;"></span>
               </div>
 
-              <div style="margin-bottom:16px;">
-                <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#0F766E;margin-bottom:8px;">
-                  Horário inteiro do dia
-                </div>
-                <div id="full-day-slot-box"></div>
-              </div>
-
-              <div>
-                <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#334155;margin-bottom:8px;">
-                  Escolha a duração para ver os horários deste dia
-                </div>
-                <div id="duration-tabs" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
-                  <button type="button" data-duration="60" class="dur-btn" style="padding:7px 12px;border-radius:10px;font-size:12px;font-weight:700;background:#0D9488;color:#ffffff;border:1px solid #0D9488;cursor:pointer;">1 hora (60 min)</button>
-                  <button type="button" data-duration="30" class="dur-btn" style="padding:7px 12px;border-radius:10px;font-size:12px;font-weight:700;background:#ffffff;color:#0F172A;border:1px solid #d6d3d1;cursor:pointer;">30 minutos</button>
-                  <button type="button" data-duration="90" class="dur-btn" style="padding:7px 12px;border-radius:10px;font-size:12px;font-weight:700;background:#ffffff;color:#0F172A;border:1px solid #d6d3d1;cursor:pointer;">1h30 (90 min)</button>
-                  <button type="button" data-duration="120" class="dur-btn" style="padding:7px 12px;border-radius:10px;font-size:12px;font-weight:700;background:#ffffff;color:#0F172A;border:1px solid #d6d3d1;cursor:pointer;">2 horas (120 min)</button>
-                </div>
-
-                <div id="slot-options-list" class="grid sm:grid-cols-2 md:grid-cols-3 gap-2"></div>
-              </div>
+              <div id="day-slots-content" style="display:flex;flex-direction:column;gap:14px;"></div>
             </div>
 
-            <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e7e5e4;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px;font-size:13px;">
-              <span style="color:#334155;">Seleção atual:</span>
-              <strong id="selected-slot-display" style="color:#0F766E;">Nenhum dia/horário selecionado ainda</strong>
+            <div id="selected-schedule-summary" style="margin-top:14px;padding:12px 14px;border-radius:12px;background:#ffffff;border:1px dashed #cbd5e1;font-size:13px;color:#334155;">
+              Nenhum dia e horário selecionado ainda. Clique em um dia acima para escolher.
             </div>
-            <input type="hidden" id="preferred-time" name="preferredTime" value="" />
           </div>
 
-          <div style="background:#FDFBF7;border-radius:16px;padding:18px;border:1px solid #e7e5e4;">
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#334155;margin-bottom:8px;">
-              Prévia da mensagem que será enviada:
-            </div>
-            <p id="message-preview" style="margin:0;font-size:13px;color:#334155;white-space:pre-line;font-family:monospace;background:#ffffff;padding:12px;border-radius:12px;border:1px solid #e7e5e4;"></p>
+          <div>
+            <label for="pet-notes" style="display:block;font-size:14px;font-weight:600;color:#0F172A;margin-bottom:6px;">
+              Observações sobre o Cachorro
+            </label>
+            <textarea
+              id="pet-notes"
+              name="petNotes"
+              rows="3"
+              placeholder="Ex: Usa peitoral, reativo a outros cães, prefere sombra, ritmo calmo..."
+              style="width:100%;padding:12px 14px;border-radius:12px;background:#FDFBF7;border:1px solid #d6d3d1;font-size:14px;color:#0F172A;"
+            ></textarea>
           </div>
 
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <button
-              type="submit"
-              id="submit-booking-btn"
-              style="width:100%;padding:15px 24px;border-radius:16px;background:#0D9488;color:#ffffff;font-weight:700;font-size:16px;border:none;cursor:pointer;"
-            >
-              Solicitar pelo WhatsApp
-            </button>
-
-            <a
-              id="direct-whatsapp-link"
-              href="https://api.whatsapp.com/send?phone=5511959954241"
-              target="_blank"
-              rel="noopener noreferrer"
-              style="text-align:center;font-size:13px;font-weight:600;color:#0F766E;text-decoration:underline;"
-            >
-              Abrir WhatsApp com a mensagem montada
-            </a>
-          </div>
+          <button
+            type="submit"
+            style="width:100%;padding:16px 24px;border-radius:16px;background:#0D9488;color:#ffffff;font-weight:700;font-size:16px;border:none;cursor:pointer;"
+          >
+            Enviar Simulação no WhatsApp
+          </button>
         </form>
       </div>
     </div>
   </section>
 
   <!-- Rodapé -->
-  <footer style="background:#0F172A;color:#cbd5e1;padding:44px 0;">
-    <div class="container-box">
-      <div class="grid md:grid-cols-3 gap-6 items-center">
-        <div>
-          <div style="font-weight:700;color:#ffffff;font-size:16px;margin-bottom:4px;">Gabriel Vieira – Passeio Pet</div>
-          <div style="font-size:13px;color:#94a3b8;">Responsável: Gabriel Vieira Rodrigues de Assis</div>
-        </div>
-
-        <div>
-          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#5eead4;font-weight:700;margin-bottom:4px;">Localização e Horários</div>
-          <div style="font-size:14px;color:#ffffff;font-weight:600;">Parque Santa Rosa, Suzano - SP</div>
-          <div style="font-size:12px;color:#94a3b8;margin-top:2px;">Seg–Sex 17:30–20:30 • Sáb 08:00–20:00 • Dom Fechado</div>
-        </div>
-
-        <div>
-          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#5eead4;font-weight:700;margin-bottom:4px;">Telefone / WhatsApp</div>
-          <a
-            href="https://api.whatsapp.com/send?phone=5511959954241&text=Ol%C3%A1%20Gabriel!%20Vi%20sua%20p%C3%A1gina%20de%20passeio%20pet%20no%20Parque%20Santa%20Rosa%20e%20gostaria%20de%20agendar%20um%20passeio."
-            target="_blank"
-            rel="noopener noreferrer"
-            style="font-size:16px;font-weight:700;color:#ffffff;text-decoration:none;"
-          >
-            (11) 95995-4241
-          </a>
-        </div>
+  <footer style="background:#0F172A;color:#cbd5e1;padding:40px 0;">
+    <div class="container-box" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+      <div>
+        <div style="font-weight:700;font-size:16px;color:#ffffff;">Gabriel Vieira – Passeio Pet</div>
+        <div style="font-size:13px;color:#94a3b8;margin-top:4px;">Parque Santa Rosa e região • Suzano - SP</div>
       </div>
-
-      <div style="margin-top:32px;padding-top:20px;border-top:1px solid #1e293b;text-align:center;font-size:12px;color:#64748b;">
-        &copy; <span id="current-year"></span> Gabriel Vieira Rodrigues de Assis – Passeio Pet. Todos os direitos reservados.
+      <div style="font-size:13px;color:#94a3b8;">
+        WhatsApp: <strong style="color:#ffffff;">(11) 95995-4241</strong>
       </div>
     </div>
   </footer>
 
   <script>
+    var GALERIA_FOTOS = [
+      {
+        src: 'Kimi.jpeg',
+        titulo: 'Passeio com a Kimi',
+        legenda: 'Caminhada e cuidado • Parque Santa Rosa, Suzano - SP',
+        autorizado: true
+      }
+    ];
+
+    function renderGallery() {
+      var grid = document.getElementById('gallery-grid');
+      if (!grid) return;
+
+      var fotosAutorizadas = GALERIA_FOTOS.filter(function (item) {
+        return item && item.autorizado && item.src;
+      });
+
+      if (fotosAutorizadas.length === 0) {
+        grid.innerHTML = '<div style="grid-column:1/-1;background:#FDFBF7;border:1px dashed #cbd5e1;border-radius:20px;padding:28px;text-align:center;color:#475569;font-size:14px;">Novas fotos de passeios em Suzano serão exibidas aqui com autorização do tutor.</div>';
+        return;
+      }
+
+      grid.innerHTML = fotosAutorizadas.map(function (foto) {
+        return (
+          '<article style="background:#FDFBF7;border:1px solid #e7e5e4;border-radius:20px;overflow:hidden;box-shadow:0 8px 20px rgba(15,23,42,0.04);">' +
+            '<img src="' + foto.src + '" alt="' + foto.titulo + '" style="width:100%;height:240px;object-fit:cover;display:block;" />' +
+            '<div style="padding:18px;">' +
+              '<h3 style="margin:0 0 6px 0;font-size:16px;font-weight:700;color:#0F172A;">' + foto.titulo + '</h3>' +
+              '<p style="margin:0;font-size:13px;color:#334155;">' + foto.legenda + '</p>' +
+            '</div>' +
+          '</article>'
+        );
+      }).join('');
+    }
+
     (function () {
-      var WHATSAPP_NUMBER = '5511959954241';
-      var WORK_HOURS_TEXT = 'Seg-Sex 17:30-20:30 | Sab 08:00-20:00 | Dom Fechado';
+      renderGallery();
 
-      var DAY_CONFIG = {
-        'Segunda': { start: 17 * 60 + 30, end: 20 * 60 + 30, label: '17:30 às 20:30' },
-        'Terça':   { start: 17 * 60 + 30, end: 20 * 60 + 30, label: '17:30 às 20:30' },
-        'Quarta':  { start: 17 * 60 + 30, end: 20 * 60 + 30, label: '17:30 às 20:30' },
-        'Quinta':  { start: 17 * 60 + 30, end: 20 * 60 + 30, label: '17:30 às 20:30' },
-        'Sexta':   { start: 17 * 60 + 30, end: 20 * 60 + 30, label: '17:30 às 20:30' },
-        'Sábado':  { start: 8 * 60,        end: 20 * 60,      label: '08:00 às 20:00' }
-      };
-
-      var var GALERIA_FOTOS = [         {           src: 'Kimi.jpeg',           titulo: 'Passeio com a Kimi',           legenda: 'Caminhada e cuidado • Parque Santa Rosa, Suzano - SP',           autorizado: true         }       ]; = [
-        {
-          src: 'fotos/passeio-1.jpg',
-          titulo: 'Caminhada no bairro',
-          legenda: 'Passeio tranquilo com atenção e hidratação • Parque Santa Rosa, Suzano',
-          autorizado: true
-        },
-        {
-          src: 'fotos/passeio-2.jpg',
-          titulo: 'Rotina e gasto de energia',
-          legenda: 'Acompanhamento individual no ritmo do pet • Suzano - SP',
-          autorizado: true
-        },
-        {
-          src: 'fotos/passeio-3.jpg',
-          titulo: 'Retorno e cuidado',
-          legenda: 'Registro enviado ao tutor após o passeio • Com autorização',
-          autorizado: true
-        }
-      ];
-
-      function pad2(n) {
-        return n < 10 ? '0' + n : String(n);
-      }
-
-      function formatMinutes(totalMins) {
-        var h = Math.floor(totalMins / 60);
-        var m = totalMins % 60;
-        return pad2(h) + ':' + pad2(m);
-      }
-
-      function generateSlotsForDay(dayName, durationMins) {
-        var cfg = DAY_CONFIG[dayName];
-        if (!cfg) return [];
-        var list = [];
-        var cursor = cfg.start;
-        while (cursor + durationMins <= cfg.end) {
-          var next = cursor + durationMins;
-          list.push(formatMinutes(cursor) + ' às ' + formatMinutes(next));
-          cursor = cursor + durationMins;
-        }
-        return list;
-      }
-
-      function renderGallery() {
-        var grid = document.getElementById('gallery-grid');
-        if (!grid) return;
-        grid.innerHTML = '';
-
-        for (var i = 0; i < GALERIA_FOTOS.length; i++) {
-          var item = GALERIA_FOTOS[i];
-          var card = document.createElement('article');
-          card.style.cssText = 'background:#FDFBF7;border-radius:18px;border:1px solid #e7e5e4;overflow:hidden;display:flex;flex-direction:column;';
-
-          var mediaWrapper = document.createElement('div');
-          mediaWrapper.style.cssText = 'aspect-ratio:4/3;background:#F5EFE6;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;';
-
-          var fallback = document.createElement('div');
-          fallback.style.cssText = 'padding:20px;text-align:center;color:#334155;';
-          fallback.innerHTML =
-            '<div style="width:42px;height:42px;border-radius:12px;background:#CCFBF1;color:#0F766E;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px auto;">FOTO ' +
-            (i + 1) +
-            '</div>' +
-            '<div style="font-weight:700;color:#0F172A;font-size:14px;">' +
-            item.titulo +
-            '</div>' +
-            '<div style="font-size:12px;color:#78716c;margin-top:4px;">Arquivo: ' +
-            item.src +
-            '</div>';
-
-          var img = document.createElement('img');
-          img.src = item.src;
-          img.alt = item.titulo + ' - ' + item.legenda;
-          img.loading = 'lazy';
-          img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:none;';
-
-          (function (imageEl, fallbackEl) {
-            imageEl.onload = function () {
-              imageEl.style.display = 'block';
-              fallbackEl.style.display = 'none';
-            };
-            imageEl.onerror = function () {
-              imageEl.style.display = 'none';
-              fallbackEl.style.display = 'block';
-            };
-          })(img, fallback);
-
-          mediaWrapper.appendChild(fallback);
-          mediaWrapper.appendChild(img);
-
-          var body = document.createElement('div');
-          body.style.cssText = 'padding:16px;flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:10px;';
-          body.innerHTML =
-            '<div>' +
-            '<h3 style="margin:0;font-weight:700;color:#0F172A;font-size:15px;">' +
-            item.titulo +
-            '</h3>' +
-            '<p style="margin:4px 0 0 0;font-size:13px;color:#334155;">' +
-            item.legenda +
-            '</p>' +
-            '</div>' +
-            '<span style="display:inline-block;font-size:11px;font-weight:600;color:#0F766E;background:#CCFBF1;padding:4px 10px;border-radius:999px;align-self:flex-start;">' +
-            (item.autorizado ? 'Autorizado pelo tutor' : 'Em aprovação') +
-            '</span>';
-
-          card.appendChild(mediaWrapper);
-          card.appendChild(body);
-          grid.appendChild(card);
-        }
-      }
-
-      function initApp() {
-        renderGallery();
-
-        var yearEl = document.getElementById('current-year');
-        if (yearEl) {
-          yearEl.textContent = String(new Date().getFullYear());
-        }
-
-        var form = document.getElementById('booking-form');
-        var tutorInput = document.getElementById('tutor-name');
-        var petInput = document.getElementById('pet-name');
-        var sizeSelect = document.getElementById('pet-size');
-        var typeSelect = document.getElementById('walk-type');
-        var cepInput = document.getElementById('addr-cep');
-        var streetInput = document.getElementById('addr-street');
-        var numberInput = document.getElementById('addr-number');
-        var neighborhoodInput = document.getElementById('addr-neighborhood');
-        var complementInput = document.getElementById('addr-complement');
-        var groomingFields = document.getElementById('grooming-fields');
-        var groomingAddressInput = document.getElementById('grooming-address');
-        var dropOffTimeInput = document.getElementById('drop-off-time');
-        var timeHiddenInput = document.getElementById('preferred-time');
-        var previewEl = document.getElementById('message-preview');
-        var feedbackBox = document.getElementById('form-feedback');
-        var feedbackText = document.getElementById('form-feedback-text');
-        var directLinkEl = document.getElementById('direct-whatsapp-link');
-
-        var dayBtns = document.querySelectorAll('.day-btn');
-        var panelEl = document.getElementById('day-slots-panel');
-        var activeDayTitle = document.getElementById('active-day-title');
-        var closePanelBtn = document.getElementById('close-day-panel');
-        var fullDaySlotBox = document.getElementById('full-day-slot-box');
-        var durationBtns = document.querySelectorAll('.dur-btn');
-        var slotOptionsList = document.getElementById('slot-options-list');
-        var selectedSlotDisplay = document.getElementById('selected-slot-display');
-
-        if (!form || !tutorInput || !petInput || !sizeSelect || !typeSelect || !timeHiddenInput || !previewEl) {
-          return;
-        }
-
-        var activeDay = null;
-        var activeDuration = 60;
-
-        function isGroomingSelected() {
-          return typeSelect.value.indexOf('Banho e Tosa') !== -1;
-        }
-
-        function toggleGroomingFields() {
-          if (!groomingFields) return;
-          if (isGroomingSelected()) {
-            groomingFields.classList.remove('is-hidden');
-          } else {
-            groomingFields.classList.add('is-hidden');
-          }
-        }
-
-        function formatAddressSummary() {
-          var cep = cepInput ? cepInput.value.trim() : '';
-          var street = streetInput ? streetInput.value.trim() : '';
-          var num = numberInput ? numberInput.value.trim() : '';
-          var neigh = neighborhoodInput ? neighborhoodInput.value.trim() : '';
-          var comp = complementInput ? complementInput.value.trim() : '';
-
-          var mainLine = '';
-          if (street) {
-            mainLine = street + (num ? ', ' + num : '');
-          } else if (num) {
-            mainLine = 'Nº ' + num;
-          }
-
-          var parts = [];
-          if (mainLine) parts.push(mainLine);
-          if (comp) parts.push('Compl.: ' + comp);
-          if (neigh) parts.push(neigh);
-          if (cep) parts.push('CEP: ' + cep);
-
-          return parts.length > 0 ? parts.join(' - ') : 'Parque Santa Rosa / Suzano - SP';
-        }
-
-        function buildWhatsAppMessage() {
-          var tutor = tutorInput.value.trim() || '[Seu Nome]';
-          var pet = petInput.value.trim() || '[Nome do Cachorro]';
-          var size = sizeSelect.value;
-          var walkType = typeSelect.value;
-          var preferredTime = timeHiddenInput.value || '[Selecione o dia e horário]';
-          var addressText = formatAddressSummary();
-          var groomingAddr = groomingAddressInput ? groomingAddressInput.value.trim() : '';
-          var dropOffTime = dropOffTimeInput ? dropOffTimeInput.value.trim() : '';
-
-          var lines = [
-            '🐾 Olá Gabriel! Vi sua página de Passeio Pet e gostaria de agendar:',
-            '',
-            '👤 Tutor / Responsável: ' + tutor,
-            '🐶 Cão: ' + pet + ' (' + size + ')',
-            '💰 Modalidade / Valor: ' + walkType,
-            '📅 Dia e Horário preferido: ' + preferredTime,
-            '⏰ Expediente: ' + WORK_HOURS_TEXT,
-            '📍 Endereço: ' + addressText
-          ];
-
-          if (isGroomingSelected()) {
-            lines.push('🚗 Leva e traz / Banho e Tosa: ' + walkType);
-            if (groomingAddr) {
-              lines.push('🚗 Endereço banho e tosa: ' + groomingAddr);
-            }
-            if (dropOffTime) {
-              lines.push('⏰ Horário para levar: ' + dropOffTime);
-            }
-          } else if (groomingAddr || dropOffTime) {
-            if (groomingAddr) {
-              lines.push('🚗 Leva e traz: ' + groomingAddr);
-            }
-            if (dropOffTime) {
-              lines.push('⏰ Horário: ' + dropOffTime);
-            }
-          }
-
-          lines.push('📍 Região: Parque Santa Rosa / Suzano - SP');
-          return lines.join('\n');
-        }
-
-        function getWhatsAppUrl() {
-          return 'https://api.whatsapp.com/send?phone=' + WHATSAPP_NUMBER + '&text=' + encodeURIComponent(buildWhatsAppMessage());
-        }
-
-        function updatePreview() {
-          toggleGroomingFields();
-          previewEl.textContent = buildWhatsAppMessage();
-          if (directLinkEl) {
-            directLinkEl.href = getWhatsAppUrl();
-          }
-        }
-
-        function setSelectedSlot(fullText) {
-          timeHiddenInput.value = fullText;
-          if (selectedSlotDisplay) {
-            selectedSlotDisplay.textContent = fullText || 'Nenhum dia/horário selecionado ainda';
-          }
-          if (feedbackBox) {
-            feedbackBox.classList.add('is-hidden');
-          }
-          renderSlotsForActiveDay();
-          updatePreview();
-        }
-
-        function updateDayButtonStyles() {
-          for (var i = 0; i < dayBtns.length; i++) {
-            var btn = dayBtns[i];
-            var d = btn.getAttribute('data-day');
-            if (d === activeDay) {
-              btn.style.background = '#0D9488';
-              btn.style.color = '#ffffff';
-              btn.style.borderColor = '#0D9488';
-            } else {
-              btn.style.background = '#ffffff';
-              btn.style.color = '#0F172A';
-              btn.style.borderColor = '#d6d3d1';
-            }
-          }
-        }
-
-        function updateDurationButtonStyles() {
-          for (var i = 0; i < durationBtns.length; i++) {
-            var btn = durationBtns[i];
-            var dur = Number(btn.getAttribute('data-duration'));
-            if (dur === activeDuration) {
-              btn.style.background = '#0D9488';
-              btn.style.color = '#ffffff';
-              btn.style.borderColor = '#0D9488';
-            } else {
-              btn.style.background = '#ffffff';
-              btn.style.color = '#0F172A';
-              btn.style.borderColor = '#d6d3d1';
-            }
-          }
-        }
-
-        function renderSlotsForActiveDay() {
-          if (!activeDay || !DAY_CONFIG[activeDay]) return;
-          var cfg = DAY_CONFIG[activeDay];
-          if (activeDayTitle) {
-            activeDayTitle.textContent = activeDay + ' — Expediente: ' + cfg.label;
-          }
-
-          var fullSlotValue = activeDay + ' — Horário inteiro (' + cfg.label + ')';
-          var isFullSelected = timeHiddenInput.value === fullSlotValue;
-          if (fullDaySlotBox) {
-            fullDaySlotBox.innerHTML = '';
-            var fullBtn = document.createElement('button');
-            fullBtn.type = 'button';
-            fullBtn.textContent = activeDay + ' inteiro (' + cfg.label + ')';
-            fullBtn.style.cssText = isFullSelected
-              ? 'padding:10px 16px;border-radius:12px;font-size:13px;font-weight:700;background:#0F172A;color:#ffffff;border:1px solid #0F172A;cursor:pointer;'
-              : 'padding:10px 16px;border-radius:12px;font-size:13px;font-weight:700;background:#CCFBF1;color:#0F766E;border:1px solid #5eead4;cursor:pointer;';
-            fullBtn.addEventListener('click', function () {
-              setSelectedSlot(fullSlotValue);
-            });
-            fullDaySlotBox.appendChild(fullBtn);
-          }
-
-          if (slotOptionsList) {
-            slotOptionsList.innerHTML = '';
-            var slots = generateSlotsForDay(activeDay, activeDuration);
-            if (slots.length === 0) {
-              var emptyMsg = document.createElement('p');
-              emptyMsg.style.cssText = 'font-size:12px;color:#334155;margin:0;';
-              emptyMsg.textContent = 'Não há bloco fechado dessa duração nesse período. Escolha outra duração ou o horário inteiro.';
-              slotOptionsList.appendChild(emptyMsg);
-              return;
-            }
-
-            for (var s = 0; s < slots.length; s++) {
-              var slotRange = slots[s];
-              var slotValue = activeDay + ' — ' + slotRange + ' (' + activeDuration + ' min)';
-              var isSelected = timeHiddenInput.value === slotValue;
-
-              (function (val, labelText, selectedFlag) {
-                var slotBtn = document.createElement('button');
-                slotBtn.type = 'button';
-                slotBtn.textContent = labelText;
-                slotBtn.style.cssText = selectedFlag
-                  ? 'width:100%;text-align:left;padding:10px 12px;border-radius:12px;font-size:13px;font-weight:700;background:#0D9488;color:#ffffff;border:1px solid #0D9488;cursor:pointer;'
-                  : 'width:100%;text-align:left;padding:10px 12px;border-radius:12px;font-size:13px;font-weight:500;background:#ffffff;color:#0F172A;border:1px solid #d6d3d1;cursor:pointer;';
-                slotBtn.addEventListener('click', function () {
-                  setSelectedSlot(val);
-                });
-                slotOptionsList.appendChild(slotBtn);
-              })(slotValue, slotRange, isSelected);
-            }
-          }
-        }
-
-        for (var d = 0; d < dayBtns.length; d++) {
-          dayBtns[d].addEventListener('click', function () {
-            var clickedDay = this.getAttribute('data-day');
-            if (activeDay === clickedDay && panelEl && !panelEl.classList.contains('is-hidden')) {
-              activeDay = null;
-              panelEl.classList.add('is-hidden');
-              updateDayButtonStyles();
-              return;
-            }
-            activeDay = clickedDay;
-            updateDayButtonStyles();
-            updateDurationButtonStyles();
-            if (panelEl) {
-              panelEl.classList.remove('is-hidden');
-            }
-            renderSlotsForActiveDay();
-          });
-        }
-
-        if (closePanelBtn) {
-          closePanelBtn.addEventListener('click', function () {
-            activeDay = null;
-            if (panelEl) {
-              panelEl.classList.add('is-hidden');
-            }
-            updateDayButtonStyles();
-          });
-        }
-
-        for (var k = 0; k < durationBtns.length; k++) {
-          durationBtns[k].addEventListener('click', function () {
-            activeDuration = Number(this.getAttribute('data-duration')) || 60;
-            updateDurationButtonStyles();
-            renderSlotsForActiveDay();
-          });
-        }
-
-        var watched = [
-          tutorInput,
-          petInput,
-          sizeSelect,
-          typeSelect,
-          cepInput,
-          streetInput,
-          numberInput,
-          neighborhoodInput,
-          complementInput,
-          groomingAddressInput,
-          dropOffTimeInput
-        ];
-
-        for (var j = 0; j < watched.length; j++) {
-          if (!watched[j]) continue;
-          watched[j].addEventListener('input', function () {
-            updatePreview();
-            if (feedbackBox) feedbackBox.classList.add('is-hidden');
-          });
-          watched[j].addEventListener('change', function () {
-            updatePreview();
-            if (feedbackBox) feedbackBox.classList.add('is-hidden');
-          });
-        }
-
-        updatePreview();
-
-        form.addEventListener('submit', function (event) {
-          event.preventDefault();
-
-          var tutor = tutorInput.value.trim();
-          var pet = petInput.value.trim();
-          var preferredTime = timeHiddenInput.value;
-
-          if (!tutor || !pet || !preferredTime) {
-            if (feedbackBox && feedbackText) {
-              feedbackText.textContent = 'Por favor, preencha seu nome, o nome do cachorro e clique em um dia da semana para escolher o horário.';
-              feedbackBox.classList.remove('is-hidden');
-              feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-            if (!tutor) tutorInput.focus();
-            else if (!pet) petInput.focus();
-            return;
-          }
-
-          if (feedbackBox) {
-            feedbackBox.classList.add('is-hidden');
-          }
-
-          var whatsappUrl = getWhatsAppUrl();
-          if (directLinkEl) {
-            directLinkEl.href = whatsappUrl;
-          }
-
-          var opened = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-          if (!opened) {
-            window.location.href = whatsappUrl;
-          }
-        });
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initApp);
-      } else {
-        initApp();
-      }
-    })();
-  </script>
-</body>
-</html>
+      var weekdaySlots = {
+        'Manhã (08:00 - 11:30)': ['08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00'],
+        'Tarde (12:00 - 17:00)': ['12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00',
